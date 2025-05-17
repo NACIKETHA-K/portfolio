@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .bg-image {
+      background-image: url('./images/michael-reinhard-BF1MklaV4NI-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .navbar-custom {
+      background: rgba(219, 209, 209, 0.276);
+      backdrop-filter: blur(20px);
+      padding: 0.8rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .navbar-brand {
+      color: black;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-icon {
+      color: black;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav-icon:hover {
+      color: white;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes jump {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-24px);
+      }
+    }
+
+    .jump {
+      animation: jump 1.05s infinite;
+    }
+
+    .arrow {
+      text-decoration: none;
+      color: white;
+    }
+
+    #rain-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .pb-5{
+      font-weight: 350;
+    }
+    .main{
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="rain-canvas"></canvas>
+
+    <div class="bg-image d-flex flex-column align-items-center">
+      <nav class="rounded navbar navbar-custom d-flex justify-content-between align-items-center mt-4 w-75 mx-auto">
+        <a href="#" class="navbar-brand">
+          <i class="fa-solid fa-tree"></i>
+        </a>
+        
+        <div class="nav-icons">
+          <a
+            v-for="icon in Icons"
+            :href="icon.link"
+            class="nav-icon"
+            rel="noopener noreferrer"
+          >
+            <i :class="icon.class"></i>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="d-flex justify-content-center align-items-center flex-grow-1 flex-column text-white text-center">
+        <h1 class="fw-bold pt-3 main">Hi, I am Naciketha !"</h1>
+        <h4 class="pb-5">"Designing smooth, stunning user interfaces."</h4>
+        <a href="./end.html" class="arrow">
+          <i class="jump fa-solid fa-circle-arrow-right fs-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          Icons: [
+            { class: "fa-brands fa-linkedin", link: 'https://linkedin.com' },
+            { class: "fa-solid fa-envelope", link: 'mailto:someone@example.com' },
+            { class: 'fa-solid fa-headset', link: 'https://example.com/support' },
+            { class: 'fa-brands fa-instagram', link: 'https://instagram.com' },
+          ]
+        };
+      }
+    }).mount('#app');
+  </script>
+  <script src="./script.js"></script>
+
+
+</body>
+</html>
